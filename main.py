@@ -53,7 +53,7 @@ if __name__ == "__main__":
                     sentence = f"The {data.hash} hash of this sentence starts with {','.join(starting[:-1])} and {starting[-1]}"
                     starting = ''.join(starting)
                     if hash_algorithms[data.hash](sentence.encode()).hexdigest().startswith(starting):
-                          print(f"\r{Back.GREEN}{sentence}{Back.RESET} => {Back.BLUE}{hashlib.md5(sentence.encode()).hexdigest()}{Back.RESET}")
+                          print(f"\r{Back.GREEN}{sentence}{Back.RESET} => {Back.BLUE}{hash_algorithms[data.hash](sentence.encode()).hexdigest()}{Back.RESET}")
                     permutation += 1
             starting_length += 1
             display('*', f"Current Starting Length = {Back.MAGENTA}{starting_length}{Back.RESET}", start='\r', end='')
