@@ -48,13 +48,16 @@ if __name__ == "__main__":
     try:
         while True:
             permutation = 0
-            while permutation < len(chars) ** starting_length:
+            repeat = -1
+            while repeat < 1:
                     starting = list(reversed([chars[(permutation//(1 if j == 0 else j * len(chars)))%len(chars)] for j in range(starting_length)]))
                     sentence = f"The {data.hash} hash of this sentence starts with {','.join(starting[:-1])} and {starting[-1]}"
                     starting = ''.join(starting)
                     if hash_algorithms[data.hash](sentence.encode()).hexdigest().startswith(starting):
                           print(f"\r{Back.GREEN}{sentence}{Back.RESET} => {Back.BLUE}{hash_algorithms[data.hash](sentence.encode()).hexdigest()}{Back.RESET}")
                     permutation += 1
+                    if starting == '0' * starting_length:
+                        repeat += 1
             starting_length += 1
             display('*', f"Current Starting Length = {Back.MAGENTA}{starting_length}{Back.RESET}", start='\r', end='')
     except KeyboardInterrupt:
