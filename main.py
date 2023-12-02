@@ -34,8 +34,6 @@ hash_algorithms = {
     "sha3_384" : hashlib.sha3_384,
     "sha3_512" : hashlib.sha3_512,
     "sha512" : hashlib.sha512,
-    "shake_128" : hashlib.shake_128,
-    "shake_256" : hashlib.shake_256,
 }
 chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 
